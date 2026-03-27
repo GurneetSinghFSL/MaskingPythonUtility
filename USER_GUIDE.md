@@ -50,3 +50,8 @@ For distribution, use bundled build output (`release/`) so end users do not need
 1. Run `build-release.bat` on a build machine.
 2. Share the generated `release` folder as-is.
 3. End users run `Mask.bat` / `Unmask.bat` directly from `release`.
+
+Notes:
+
+- Build uses a dedicated `.build-venv` environment for stability and speed.
+- First packaging run can take several minutes; do not close the window while PyInstaller is running.

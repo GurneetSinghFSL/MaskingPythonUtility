@@ -5,6 +5,8 @@ __pycache__/
 # Virtual environments
 .venv/
 venv/
+.build-venv/
+.build-venv-*/
 
 # Runtime logs
 Logs/*.log

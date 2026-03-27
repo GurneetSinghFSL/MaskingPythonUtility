@@ -98,6 +98,13 @@ Create a bundled Windows executable with Python runtime included:
 build-release.bat
 ```
 
+Build script behavior:
+
+- Creates and uses an isolated build environment at `.build-venv`.
+- Installs only required packages plus PyInstaller for packaging.
+- Avoids scanning heavy global Conda packages that can make builds look stuck.
+- First run may take several minutes.
+
 Build output is created in `release/` with this structure:
 
 - `release/bin/MaskingUtility.exe`
