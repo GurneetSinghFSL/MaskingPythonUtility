@@ -76,6 +76,12 @@ Double-click:
 - `Mask.bat` for masking
 - `Unmask.bat` for unmasking
 
+Batch launcher behavior:
+
+- Detects Python using `py -3` or `python` from PATH.
+- Falls back to common local installations such as `%LOCALAPPDATA%\\anaconda3\\python.exe`.
+- If no runtime is found, shows a Windows error popup instead of silently closing.
+
 Or run manually:
 
 ```bash

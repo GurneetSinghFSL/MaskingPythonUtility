@@ -8,6 +8,9 @@
 4. Run `Mask.bat` to mask.
 5. Run `Unmask.bat` to unmask.
 
+If Python is not in PATH, launcher tries common local Python/Conda locations automatically.
+If runtime is still not found, it shows a Windows popup with guidance.
+
 ## Important Behavior
 
 - Only columns listed in `Masking.xlsx` for each file are changed.
