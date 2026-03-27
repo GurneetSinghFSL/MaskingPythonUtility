@@ -1,0 +1,10 @@
+{
+  "input_folder": "Input",
+  "output_folder": "Output",
+  "output_folder_masked": "Output/Masked",
+  "output_folder_unmasked": "Output/Unmasked",
+  "log_folder": "Logs",
+  "masking_rules_file": "Masking.xlsx",
+  "pass_phrase": "Qp7$Nw3!rT9@xV2#Lm8^kD5&zY1*Hs6%Jc4!",
+  "headless_run": false
+}

@@ -1,0 +1,9 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "git -C \"c:\\Gurneet\\OneDrive": true,
+        "Test-Path": true,
+        "&": true,
+        "Get-Command": true,
+        "where.exe": true
+    }
+}
