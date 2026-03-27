@@ -11,6 +11,8 @@
 If Python is not in PATH, launcher tries common local Python/Conda locations automatically.
 If runtime is still not found, it shows a Windows popup with guidance.
 
+For distribution, use bundled build output (`release/`) so end users do not need Python installed.
+
 ## Important Behavior
 
 - Only columns listed in `Masking.xlsx` for each file are changed.
@@ -42,3 +44,9 @@ If runtime is still not found, it shows a Windows popup with guidance.
 - Check `Logs/masking_utility.log` for stack traces.
 - Ensure file names in `Masking.xlsx` match exact input workbook names.
 - Ensure pass phrase is identical for mask and unmask.
+
+## Packaging For End Users
+
+1. Run `build-release.bat` on a build machine.
+2. Share the generated `release` folder as-is.
+3. End users run `Mask.bat` / `Unmask.bat` directly from `release`.

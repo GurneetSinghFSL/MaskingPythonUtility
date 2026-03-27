@@ -1,6 +1,20 @@
 @echo off
 setlocal
 set SCRIPT_DIR=%~dp0
+set BUNDLED_EXE=%SCRIPT_DIR%bin\MaskingUtility.exe
+
+if exist "%BUNDLED_EXE%" (
+  "%BUNDLED_EXE%" mask --config "%SCRIPT_DIR%utility-config.json"
+  set EXIT_CODE=%ERRORLEVEL%
+  if %EXIT_CODE% neq 0 (
+    echo Mask operation finished with error code %EXIT_CODE%.
+  ) else (
+    echo Mask operation finished successfully.
+  )
+  endlocal
+  exit /b %EXIT_CODE%
+)
+
 set PY_CMD=
 where py >nul 2>nul
 if %ERRORLEVEL% EQU 0 (

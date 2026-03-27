@@ -9,6 +9,12 @@ venv/
 # Runtime logs
 Logs/*.log
 
+# Build artifacts
+build/
+dist/
+release/
+*.spec
+
 # OS/editor noise
 .DS_Store
 Thumbs.db

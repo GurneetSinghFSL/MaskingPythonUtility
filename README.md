@@ -27,7 +27,7 @@ Expected distribution structure:
 - `Mask.bat`
 - `Unmask.bat`
 
-## Setup
+## Setup (Development)
 
 1. Install Python 3.10+.
 2. Install dependencies:
@@ -78,6 +78,7 @@ Double-click:
 
 Batch launcher behavior:
 
+- Prefers bundled runtime executable at `bin/MaskingUtility.exe` when available.
 - Detects Python using `py -3` or `python` from PATH.
 - Falls back to common local installations such as `%LOCALAPPDATA%\\anaconda3\\python.exe`.
 - If no runtime is found, shows a Windows error popup instead of silently closing.
@@ -88,6 +89,28 @@ Or run manually:
 python -m masking_utility.cli mask --config utility-config.json
 python -m masking_utility.cli unmask --config utility-config.json
 ```
+
+## Build No-Install Runtime (For End Users)
+
+Create a bundled Windows executable with Python runtime included:
+
+```bat
+build-release.bat
+```
+
+Build output is created in `release/` with this structure:
+
+- `release/bin/MaskingUtility.exe`
+- `release/Input/`
+- `release/Logs/`
+- `release/Output/Masked/`
+- `release/Output/Unmasked/`
+- `release/Masking.xlsx`
+- `release/utility-config.json`
+- `release/Mask.bat`
+- `release/Unmask.bat`
+
+End users can run `Mask.bat` / `Unmask.bat` from `release/` without installing Python.
 
 ## Logs
 
