@@ -81,6 +81,7 @@ Batch launcher behavior:
 - Prefers bundled runtime executable at `bin/MaskingUtility.exe` when available.
 - Detects Python using `py -3` or `python` from PATH.
 - Falls back to common local installations such as `%LOCALAPPDATA%\\anaconda3\\python.exe`.
+- Validates that detected runtime is actually executable (avoids broken Windows App Alias detections).
 - If no runtime is found, shows a Windows error popup instead of silently closing.
 
 Or run manually:

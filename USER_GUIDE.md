@@ -10,6 +10,7 @@
 
 If Python is not in PATH, launcher tries common local Python/Conda locations automatically.
 If runtime is still not found, it shows a Windows popup with guidance.
+Launcher also verifies runtime is truly runnable to avoid silent failures from Windows python app aliases.
 
 For distribution, use bundled build output (`release/`) so end users do not need Python installed.
 
