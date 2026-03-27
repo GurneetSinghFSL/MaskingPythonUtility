@@ -17,10 +17,12 @@ For distribution, use bundled build output (`release/`) so end users do not need
 ## Important Behavior
 
 - Only columns listed in `Masking.xlsx` for each file are changed.
+- Locked sheet format is supported directly: `FileName`, `Sheet Name`, `Column1..ColumnN`.
 - Files are processed from `Input` and written to:
   - `Output/Masked` (mask mode)
   - `Output/Unmasked` (unmask mode)
 - If a file has no rule in `Masking.xlsx`, it is copied to output without data changes.
+- If a sheet name is provided in mapping, masking is applied only on that sheet.
 
 ## GUI Mode (headless_run = false)
 

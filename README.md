@@ -55,12 +55,21 @@ Default pass phrase:
 
 ## Masking Rules File (`Masking.xlsx`)
 
-The first sheet must contain headers equivalent to:
+The first sheet supports both formats below:
+
+1. Locked enterprise format (supported as-is):
+
+- `FileName`
+- `Sheet Name`
+- `Column1`, `Column2`, ... `ColumnN`
+
+2. Generic format:
 
 - File column: one of `file`, `filename`, `file_name`, `excel`, `excel_file`, `workbook`
 - Columns column: one of `columns`, `column`, `column_name`, `column_names`, `mask_columns`
 
-Each row links a workbook name to one or more comma-separated columns.
+Each row links a workbook and optional sheet name to columns to mask.
+If file name in `Masking.xlsx` is a base name (without extension/suffix), matching is handled flexibly against input workbook names.
 
 Example:
 

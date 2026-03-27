@@ -9,7 +9,7 @@ from openpyxl import load_workbook
 
 from .config import AppConfig
 from .crypto import CryptoManager
-from .rules import load_rules
+from .rules import RuleMap, load_rules, resolve_rules_for_file
 
 
 @dataclass
@@ -86,18 +86,27 @@ class WorkbookProcessor:
         source_file: Path,
         output_dir: Path,
         mode: str,
-        rules: Dict[str, Set[str]],
+        rules: RuleMap,
     ) -> int:
         self.logger.debug("_process_file start | file=%s", source_file)
         workbook = load_workbook(source_file)
-        file_rule_columns = rules.get(source_file.name.lower(), set())
+        matched_rule_key, file_rule_map = resolve_rules_for_file(rules, source_file.name)
         total_affected = 0
 
-        if not file_rule_columns:
+        if not file_rule_map:
             self.logger.info("no matching rule found; file copied with no changes | file=%s", source_file)
+        else:
+            self.logger.info(
+                "rule matched | input_file=%s | rule_key=%s",
+                source_file.name,
+                matched_rule_key,
+            )
 
         for sheet in workbook.worksheets:
-            total_affected += self._process_sheet(sheet, file_rule_columns, mode)
+            target_columns: Set[str] = set()
+            target_columns.update(file_rule_map.get("*", set()))
+            target_columns.update(file_rule_map.get(sheet.title.strip().lower(), set()))
+            total_affected += self._process_sheet(sheet, target_columns, mode)
 
         output_path = output_dir / source_file.name
         workbook.save(output_path)
